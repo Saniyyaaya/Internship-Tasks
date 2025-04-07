@@ -1,0 +1,108 @@
+/* General styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.drop-area {
+    border: 2px dashed #007BFF;
+    padding: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    transition: background-color 0.3s ease, border 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.drop-area:hover {
+    background-color: #e3f2fd;
+    border-color: #0056b3;
+}
+
+#uploadBtn {
+    background-color: #007BFF;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#uploadBtn:hover {
+    background-color: #0056b3;
+}
+
+#uploadBtn:active {
+    background-color: #003d75;
+}
+
+/* File List */
+#uploadedFiles {
+    margin-top: 30px;
+    text-align: left;
+    display: none;
+}
+
+#uploadedFiles h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#uploadedFiles div {
+    margin-top: 10px;
+}
+
+#fileList p {
+    color: #333;
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .container {
+    background-color: #444;
+    color: white;
+}
+
+body.dark-mode .drop-area {
+    background-color: #555;
+    border-color: #007BFF;
+}
+
+body.dark-mode #uploadBtn {
+    background-color: #0056b3;
+}
+
+body.dark-mode #uploadBtn:hover {
+    background-color: #003d75;
+}

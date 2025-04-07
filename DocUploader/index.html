@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocUploader</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>DocUploader</h1>
+        <h2>Upload Your Documents</h2>
+
+        <!-- Dark mode toggle switch -->
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+        <p>Drag & drop your files here or click to upload</p>
+
+        <!-- File upload area -->
+        <div id="drop-area" class="drop-area">
+            <input type="file" id="fileInput" multiple hidden>
+            <button id="uploadBtn">Select Files</button>
+            <div id="fileList"></div>
+        </div>
+
+        <div id="uploadedFiles">
+            <h3>Uploaded Files:</h3>
+            <div id="filesDisplay"></div>
+        </div>
+    </div>
+</body>
+</html>

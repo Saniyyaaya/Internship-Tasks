@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Management</title>
+    <script>
+        async function addOrder() {
+            const product_name = document.getElementById('product_name').value;
+            const quantity = document.getElementById('quantity').value;
+            const price = document.getElementById('price').value;
+
+            const response = await fetch('/add_order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ product_name, quantity, price })
+            });
+
+            const data = await response.json();
+            alert(data.message);
+            fetchOrders();
+        }
+
+        async function fetchOrders() {
+            const response = await fetch('/get_orders');
+            const orders = await response.json();
+            let orderTable = '<tr><th>ID</th><th>Product</th><th>Quantity</th><th>Price</th><th>Action</th></tr>';
+            orders.forEach(order => {
+                orderTable += `<tr>
+                    <td>${order[0]}</td>
+                    <td>${order[1]}</td>
+                    <td>${order[2]}</td>
+                    <td>${order[3]}</td>
+                    <td><button onclick="deleteOrder(${order[0]})">Delete</button></td>
+                </tr>`;
+            });
+            document.getElementById('orders').innerHTML = orderTable;
+        }
+
+        async function deleteOrder(orderId) {
+            await fetch(`/delete_order/${orderId}`, { method: 'DELETE' });
+            fetchOrders();
+        }
+    </script>
+</head>
+<body onload="fetchOrders()">
+    <h2>Place an Order</h2>
+    <input type="text" id="product_name" placeholder="Product Name">
+    <input type="number" id="quantity" placeholder="Quantity">
+    <input type="number" id="price" placeholder="Price">
+    <button onclick="addOrder()">Submit</button>
+
+    <h2>Order History</h2>
+    <table id="orders"></table>
+</body>
+</html>

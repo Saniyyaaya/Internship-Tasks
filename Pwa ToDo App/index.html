@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <script src="auth.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="manifest" href="manifest.json">
+    <script src="service-worker.js" defer></script>
+  
+
+
+
+</head>
+<body>
+    <div id="theme-toggle" class="toggle-theme">🌙</div>
+
+    <!-- Login Page -->
+    <div id="login-page">
+        <h1>Task Manager</h1>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <button id="signup-toggle">Don't have an account? Sign up</button>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signup-page" style="display: none;">
+        <h1>Create Account</h1>
+        <form id="signup-form">
+            <label for="new-email">Email:</label>
+            <input type="email" id="new-email" required>
+            <label for="new-password">Password:</label>
+            <input type="password" id="new-password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <button id="login-toggle">Already have an account? Login</button>
+    </div>
+
+    <!-- Task Manager Section (hidden initially) -->
+    <div id="task-manager" style="display: none;">
+        <h2>Your Task Manager</h2>
+        
+        <!-- Logout Button -->
+        <button id="logout-btn">Logout</button>
+        
+        <div id="task-count">Total Tasks: 0</div>
+        <div id="completed-count">Completed Tasks: 0</div>
+
+        <form id="task-form">
+            <input type="text" id="task-title" placeholder="Task Title" required />
+            <textarea id="task-description" placeholder="Task Description"></textarea>
+            <select id="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <button type="submit">Add Task</button>
+        </form>
+        
+        <div id="tasks-list"></div>
+    </div>
+
+    <div id="footer">
+        <p>&copy; </p>
+    </div>
+</body>
+</html>
